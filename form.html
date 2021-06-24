@@ -2,17 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>FOMRULARIO</title>
+    <title>FORMULARIO</title>
+    <link rel="stylesheet" href="https:://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
   </head>
   <body>
     <div id="app">
     <form @submit.prevent="submit">
+      <div class="bg-gradient-to-r from-red-500/50">
+        <!-- <span class="bg-blue-500" :class="{'bg-red-500': flagCss}" > Importante</span> -->
+        <span class="bg-blue-500" :class="classObject" > Importante</span>
+      </div>
       <input type="text" v-model="form.name">
       <textarea name="name" rows="8" cols="80" v-model="form.text" ></textarea>
       <button type="submit" name="button"> Enviar</button>
     </form>
-    <p v-if="errors.length > 0">
-      <template v-for="e in errors">
+    <p  v-if="errors.length > 0">
+      <template  v-for="e in errors">
         {{e}}
       </template>
      </p>
@@ -30,6 +35,11 @@
               text:'',
             },
             errors:[],
+            flagCss:true,
+            classObject:{
+              'bg-red-500':true,
+              // 'bg-blue-500':false,
+            },
           }
         },
         methods: {
