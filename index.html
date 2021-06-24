@@ -8,8 +8,28 @@
   </head>
   <body>
     <div id="app">
-        <h2>{{titulo}}</h2>
+        <h2 v-text="titulo" ></h2>
       <input type="text" v-model="name">
+      <!-- v-bind css,href,img -->
+      <span v-bind:title="name" >{{name}}</span>
+
+      <!-- v-for -->
+      <!-- <p v-for="number in informacion" v-text="number.total" ></p> -->
+      <p v-for="(value, key) in informacion" v-text="value" ></p>
+
+      <!-- v-if -->
+      <!-- <h2 v-if="flag" v-text="name" ></h2>
+      <h2 v-else >Hola mundo else</h2> -->
+
+      <template v-if="flag">
+        {{name}}
+      </template>
+      <template v-else>
+        Hola mundo
+      </template>
+
+      <!-- v-show --hidden al alemento -- v-if los destruye -->
+      <h2 v-show="flag">V-show</h2>
     </div>
 
   <script src="https://unpkg.com/vue@next"></script>
@@ -18,7 +38,17 @@
           data() {
                 return {
                       titulo:'Mi titulo Vue',
-                      name : 'Josue Flores'
+                      name : 'Josue Flores',
+                      numbers:[1,2,3,4,5],
+                      totales:[
+                        {total:10},
+                        {total:20}
+                      ],
+                      informacion:{
+                        nombre: 'josue Flores Matute',
+                        profesion: 'Licenciado'
+                      },
+                      flag:false
                     }
               },
               beforeCreate() {
