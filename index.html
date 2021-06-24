@@ -30,6 +30,11 @@
 
       <!-- v-show --hidden al alemento -- v-if los destruye -->
       <h2 v-show="flag">V-show</h2>
+
+      <button @click="ChangeFlag" > changee </button>
+      <div class="" @copy="alerta" >
+        <p> copiar</p>
+      </div>
     </div>
 
   <script src="https://unpkg.com/vue@next"></script>
@@ -62,6 +67,14 @@
               created() {
                 //do something after creating vue instance
                 console.log('Instancia creada');
+              },
+              methods: {
+                ChangeFlag() {
+                  this.flag = !this.flag;
+                },
+                alerta(){
+                  alert('Copio en texto correctamente');
+                }
               }
         }
     Vue.createApp(hola).mount("#app");
