@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app">
-      <p>{{mGetRandom()}}</p>
-        <p>{{mGetRandom()}}</p>
-          <p>{{mGetRandom()}}</p>
 
-          <p>{{cGetRandom}}</p>
-          <p>{{cGetRandom}}</p>
-          <p>{{cGetRandom}}</p>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <p>{{mGetRandom()}}</p>
+    <p>{{mGetRandom()}}</p>
+    <p>{{mGetRandom()}}</p>
+
+    <p>{{cGetRandom}}</p>
+    <p>{{cGetRandom}}</p>
+    <p>{{cGetRandom}}</p>
+
+    <div>
+      {{name}}
+      <input v-model="name">
     </div>
+  </div>
 
   <script src="https://unpkg.com/vue@next"></script>
   <script>
     const computed = {
-          data() {
-                return {
-
-                    }
-              },
-
-              methods: {
-              mGetRandom(){
-                return Math.random();
-              }
-            },
-            // Es médoto que se ejecuta una sola vez
-            computed:{
-              cGetRandom(){
-                  return Math.random();
-              }
-            }
+      data() {
+        return {
+          name: '',
         }
+      },
+
+      methods: {
+        mGetRandom() {
+          return Math.random();
+        }
+      },
+      // Es médoto que se ejecuta una sola vez
+      computed: {
+        cGetRandom() {
+          return Math.random();
+        }
+      },
+      // un objeto se le asocia una función cuando una propiedad cambia
+      watch:{
+        name(new_value, old_value){
+          console.log('cambio', new_value);
+        }
+      }
+    }
     Vue.createApp(computed).mount("#app");
   </script>
-  </body>
+</body>
+
 </html>
