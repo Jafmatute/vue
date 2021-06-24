@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FOMRULARIO</title>
+  </head>
+  <body>
+    <div id="app">
+    <form @submit.prevent="submit">
+      <input type="text" v-model="form.name">
+      <textarea name="name" rows="8" cols="80" v-model="form.text" ></textarea>
+      <button type="submit" name="button"> Enviar</button>
+    </form>
+    <p v-if="errors.length > 0">
+      <template v-for="e in errors">
+        {{e}}
+      </template>
+     </p>
+    </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+      const form = {
+
+        data(){
+          return {
+            form:{
+              name:'',
+              text:'',
+            },
+            errors:[],
+          }
+        },
+        methods: {
+          submit() {
+            this.errors=[]
+            if(this.form.name== ""){
+              this.errors.push('el campo name no puede etar vacio')
+            }
+            console.log(this.form);
+          }
+        }
+      }
+      Vue.createApp(form).mount("#app");
+    </script>
+  </body>
+</html>
