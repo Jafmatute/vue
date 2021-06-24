@@ -8,7 +8,8 @@
   </head>
   <body>
     <div id="app">
-      {{name}}
+        <h2>{{titulo}}</h2>
+      <input type="text" v-model="name">
     </div>
 
   <script src="https://unpkg.com/vue@next"></script>
@@ -16,8 +17,21 @@
     const hola = {
           data() {
                 return {
+                      titulo:'Mi titulo Vue',
                       name : 'Josue Flores'
                     }
+              },
+              beforeCreate() {
+                //do something before creating vue instance
+                console.log('before');
+              },
+              beforeUpdate() {
+                //do something before updating vue instance
+                console.log('Actualizando...');
+              },
+              created() {
+                //do something after creating vue instance
+                console.log('Instancia creada');
               }
         }
     Vue.createApp(hola).mount("#app");
