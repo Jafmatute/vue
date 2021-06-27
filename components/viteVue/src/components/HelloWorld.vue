@@ -1,5 +1,6 @@
 <template>
   <h1>{{ msg }}</h1>
+  <button @click="EventEmit">Emit</button>
 </template>
 
 <!--<script setup>
@@ -12,9 +13,14 @@ defineProps({
 
 <script type="text/javascript">
   export default {
-    // props: ['msg']
-    props: {
-      msg:String
+    props: ['msg'],
+    // props: {
+    //   msg:String
+    // },
+    methods:{
+      EventEmit(){
+        this.$emit("emitE",this.msg)
+      }
     }
   }
 </script>

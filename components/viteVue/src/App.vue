@@ -3,7 +3,7 @@
   <!-- Header -->
   <template v-slot:header>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + Vite" />
+    <HelloWorld msg="Hello Vue 3 + Vite" @emitE="handleEmit" />
   </template>
   <!-- Body -->
   <template v-slot:body>
@@ -13,12 +13,37 @@
 </AppLayout>
 </template>
 
-<script setup>
+<!--<script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import Bottom from './components/Bottom.vue'
 import AppLayout from './components/AppLayout.vue'
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+</script>-->
+
+<script type="text/javascript">
+import HelloWorld from './components/HelloWorld.vue'
+import Bottom from './components/Bottom.vue'
+import AppLayout from './components/AppLayout.vue'
+  export default {
+
+    data(){
+
+      return{
+
+      }
+    },
+    components:{
+      HelloWorld,
+      Bottom,
+      AppLayout
+    },
+    methods:{
+      handleEmit(e){
+        console.log(e);
+      }
+    }
+  }
 </script>
 <style>
 #app {
