@@ -12,7 +12,9 @@
 
 </AppLayout> -->
 <keep-alive>
-  <component :is="currentComponent" ></component>
+  <transition name="fade">
+      <component :is="currentComponent" ></component>
+  </transition>
 </keep-alive>
 
 <button @click="currentComponent = 'Home'" type="button">Home</button>
@@ -66,5 +68,13 @@ import About from './components/About.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+},
+.fade-enter-active,
+.fade-leave-active{
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to{
+  opacity: 0;
 }
 </style>
