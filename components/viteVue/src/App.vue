@@ -12,9 +12,9 @@
 
 </AppLayout> -->
 <keep-alive>
-  <transition name="fade">
+  <Fade>
       <component :is="currentComponent" ></component>
-  </transition>
+  </Fade>
 </keep-alive>
 
 <button @click="currentComponent = 'Home'" type="button">Home</button>
@@ -38,6 +38,10 @@ import AppLayout from './components/AppLayout.vue'
 //Components reutilizables
 import Home from './components/Home.vue'
 import About from './components/About.vue'
+
+//transitions
+import Fade from './transitions/Fade.vue'
+
   export default {
 
     data(){
@@ -52,6 +56,7 @@ import About from './components/About.vue'
       AppLayout,
       Home,
       About,
+      Fade
     },
     methods:{
       handleEmit(e){
@@ -68,13 +73,6 @@ import About from './components/About.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-},
-.fade-enter-active,
-.fade-leave-active{
-  transition: opacity 0.5s ease;
 }
-.fade-enter-from,
-.fade-leave-to{
-  opacity: 0;
-}
+
 </style>
