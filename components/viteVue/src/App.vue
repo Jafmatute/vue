@@ -24,6 +24,9 @@
 <!-- Global -->
 <h2> {{$filters.toUpperCaseLocale("josue")}} </h2>
 
+<!-- Directive -->
+<p v-background="'red'"> {{name}} </p>
+
 </template>
 
 
@@ -44,6 +47,7 @@ import Fade from './transitions/Fade.vue'
     data(){
 
       return{
+        name:'Vue JS',
         currentComponent:"home",
       }
     },

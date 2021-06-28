@@ -12,4 +12,12 @@ app.config.globalProperties.$filters = {
   },
 };
 
+//Define directive
+app.directive("background", {
+  beforeMount(el, binding, vnode, prevVnode) {
+    console.log("BIND", binding);
+    el.style.background = binding.value;
+  },
+});
+
 app.mount("#app");
