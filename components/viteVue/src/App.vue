@@ -11,6 +11,7 @@
   </template>
 
 </AppLayout> -->
+
 <keep-alive>
   <Fade>
       <component :is="currentComponent" ></component>
@@ -20,15 +21,11 @@
 <button @click="currentComponent = 'Home'" type="button">Home</button>
 <button @click="currentComponent = 'About'" type="button">About</button>
 
+<!-- Global -->
+<h2> {{$filters.toUpperCaseLocale("josue")}} </h2>
+
 </template>
 
-<!--<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import Bottom from './components/Bottom.vue'
-import AppLayout from './components/AppLayout.vue'
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
-</script>-->
 
 <script type="text/javascript">
 import HelloWorld from './components/HelloWorld.vue'
